@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.2018-2-desenho.app</groupId>
-  <artifactId>cabeca-volei-joelho-pe</artifactId>
+  <artifactId>CabecaVoleiJoelhoPe</artifactId>
   <packaging>jar</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>cabeca-volei-joelho-pe</name>
+  <name>CabecaVoleiJoelhoPe</name>
   <url>http://maven.apache.org</url>
   <dependencies>
     <dependency>
