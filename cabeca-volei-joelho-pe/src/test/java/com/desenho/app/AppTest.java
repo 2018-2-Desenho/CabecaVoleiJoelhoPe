@@ -1,4 +1,4 @@
-package com.2018-2-desenho.app;
+package com.desenho.app;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
