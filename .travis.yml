@@ -1,7 +1,12 @@
 language: java
-jdk: oraclejdk8
-install: true
-script: ./mvnw clean install
-cache:
-  directories:
-  - $HOME/.m2
+
+sudo: required
+
+before_install:
+ - cd cabeca-volei-joelho-pe
+
+script:
+ - mvn test
+ - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+jdk:
+ - oraclejdk8
