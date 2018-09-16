@@ -1,4 +1,4 @@
-# JogoLegal
+# Cabeça Vôlei Joelho e Pé
 
 Code Climate:
 
