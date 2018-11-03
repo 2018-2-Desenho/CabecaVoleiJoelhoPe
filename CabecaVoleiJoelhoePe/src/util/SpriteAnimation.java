@@ -57,7 +57,7 @@ public class SpriteAnimation {
         return images.get(currentImageIndex);
     }
 
-    public boolean finished()
+    public boolean isFinished()
     {
         return currentImageIndex == images.size()-1;
     }

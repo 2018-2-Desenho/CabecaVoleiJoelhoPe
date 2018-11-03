@@ -66,17 +66,17 @@ public class ImageManager {
         return img;
     }
 
-    public SpriteAnimation loadSpriteAnimation(String fileName, int qtdFrames) throws
+    public SpriteAnimation loadSpriteAnimation(String fileName, int qttFrames) throws
     IOException {
         BufferedImage sheet = loadImage(fileName);
-        if (sheet.getWidth() % qtdFrames != 0) {
+        if (sheet.getWidth() % qttFrames != 0) {
             throw new RuntimeException("A imagem /" + fileName
-                            + " não possui " + qtdFrames + " sprites de mesmo tamanho.");
+                            + " não possui " + qttFrames + " sprites de mesmo tamanho.");
         } else {
             SpriteAnimation anim = new SpriteAnimation();
-            int w = sheet.getWidth() / qtdFrames;
+            int w = sheet.getWidth() / qttFrames;
             int h = sheet.getHeight();
-            for (int i = 0; i < qtdFrames; i++) {
+            for (int i = 0; i < qttFrames; i++) {
                 anim.addImage(sheet.getSubimage(i * w, 0, w, h));
             }
             return anim;
