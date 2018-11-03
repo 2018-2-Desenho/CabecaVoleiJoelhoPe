@@ -19,7 +19,6 @@ public abstract class DynamicEntity extends AbstractEntity{
         this.gravity = 0.4;
     }
     
-    @Override
     public void update(int currentTick){
         this.speed.x += this.acceleration.x;
         
