@@ -18,30 +18,30 @@ public class CollisionDetector {
            }
        }
        
-       for (int i1 = 0; i1 < this.entities.size() - 1; i1++) {
-            AbstractEntity o1 = this.entities.get(i1);
+       for (int x = 0; x < this.entities.size() - 1; x++) {
+            AbstractEntity focusEntity = this.entities.get(x);
             
-            for (int i2 = i1 + 1; i2 < this.entities.size(); i2++) {
-                AbstractEntity o2 = this.entities.get(i2);
+            for (int y = x + 1; y < this.entities.size(); y++) {
+                AbstractEntity verifiedEntity = this.entities.get(y);
                 
-                if (o1.position.intersects(o2.position)) {
-                    Rectangle2D rect = o1.position.createIntersection(o2.position);
+                if (focusEntity.position.intersects(verifiedEntity.position)) {
+                    Rectangle2D rect = focusEntity.position.createIntersection(verifiedEntity.position);
                     
                     if (rect.getWidth() > rect.getHeight()) {
-                        if (o1.position.getCenterY() < o2.position.getCenterY()) {
-                                o1.collidingEntities[AbstractEntity.COLLIDING_DOWN] = o2;
-                                o2.collidingEntities[AbstractEntity.COLLIDING_TOP] = o1;
+                        if (focusEntity.position.getCenterY() < verifiedEntity.position.getCenterY()) {
+                                focusEntity.collidingEntities[AbstractEntity.COLLIDING_DOWN] = verifiedEntity;
+                                verifiedEntity.collidingEntities[AbstractEntity.COLLIDING_TOP] = focusEntity;
                         } else {
-                                o1.collidingEntities[AbstractEntity.COLLIDING_TOP] = o2;
-                                o2.collidingEntities[AbstractEntity.COLLIDING_DOWN] = o1;
+                                focusEntity.collidingEntities[AbstractEntity.COLLIDING_TOP] = verifiedEntity;
+                                verifiedEntity.collidingEntities[AbstractEntity.COLLIDING_DOWN] = focusEntity;
                         }
                     } else {
-                        if (o1.position.getCenterX() < o2.position.getCenterX()) {
-                                o1.collidingEntities[AbstractEntity.COLLIDING_RIGHT] = o2;
-                                o2.collidingEntities[AbstractEntity.COLLIDING_LEFT] = o1;
+                        if (focusEntity.position.getCenterX() < verifiedEntity.position.getCenterX()) {
+                                focusEntity.collidingEntities[AbstractEntity.COLLIDING_RIGHT] = verifiedEntity;
+                                verifiedEntity.collidingEntities[AbstractEntity.COLLIDING_LEFT] = focusEntity;
                         } else {
-                                o1.collidingEntities[AbstractEntity.COLLIDING_LEFT] = o2;
-                                o2.collidingEntities[AbstractEntity.COLLIDING_RIGHT] = o1;
+                                focusEntity.collidingEntities[AbstractEntity.COLLIDING_LEFT] = verifiedEntity;
+                                verifiedEntity.collidingEntities[AbstractEntity.COLLIDING_RIGHT] = focusEntity;
                         }
                     }
                 }
