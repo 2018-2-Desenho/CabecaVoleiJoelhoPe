@@ -21,5 +21,5 @@ public abstract class AbstractEntity {
     
     public abstract void init();
     public abstract void render(Graphics2D g);
-    
+    public abstract void update(int currentTick);
 }
