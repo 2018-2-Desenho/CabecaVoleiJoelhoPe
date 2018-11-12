@@ -5,10 +5,12 @@ import javax.swing.JFrame;
 public class Apresentacao extends JFrame {
     private MenuPrincipal menu;
     private MenuArena menuArena;
+    private MenuJogador menuJogador;
     
     public Apresentacao(){
         menu = new MenuPrincipal(this);
         menuArena = new MenuArena(this);
+        menuJogador = new MenuJogador(this);
         
         add(menu);
 
@@ -27,6 +29,15 @@ public class Apresentacao extends JFrame {
         revalidate();            
         menuArena.requestFocusInWindow();        
         menuArena.repaint();
+    }
+    
+    public void showMenuJogador(){
+        remove(menuArena);
+        
+        add(menuJogador);
+        revalidate();            
+        menuJogador.requestFocusInWindow();        
+        menuJogador.repaint();
     }
     
     public static void main(String[] args) {

@@ -1,4 +1,3 @@
-
 package apresentacao;
 
 import java.awt.Graphics;
@@ -11,20 +10,22 @@ import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-public class MenuArena extends JPanel implements ActionListener{
-    private Apresentacao app;
+class MenuJogador extends JPanel implements ActionListener{
+     private Apresentacao app;
     
     private KeyListerner keyListerner;
     
-    private Image background;
+    private Image background1;
+    private Image background2;
     private Image[] btnOn;
     private Image[] btnOff;
     
     private int nav = 0;
     private int sel = 0;
-    private int arenaSelecionada = 0;
+    private int[] jogadoresSelecionados = new int[2];
+    private int nJogador = 0;
     
-    public MenuArena(Apresentacao app){
+    public MenuJogador(Apresentacao app){
         this.app = app;
         
         ImageIcon image;
@@ -87,10 +88,11 @@ public class MenuArena extends JPanel implements ActionListener{
         image = new ImageIcon("imagens/botoes/botao_imagem_off.png");        
         btnOff[7] = image.getImage();
        
-        image = new ImageIcon("imagens/menu/Escolha_arena.png");
-        this.background = image.getImage();
+        image = new ImageIcon("imagens/menu/J1_escolha_de_personagem.png");
+        this.background1 = image.getImage();
         
-               
+        image = new ImageIcon("imagens/menu/J2_escolha_de_personagem.png");
+        this.background2 = image.getImage();
     }
     
     @Override
@@ -98,7 +100,13 @@ public class MenuArena extends JPanel implements ActionListener{
         super.paintComponent(g);
 //        switch(sel){
 //            case 0:
-            g.drawImage(this.background, 0, 0, null);
+            if (nJogador == 0){
+                g.drawImage(this.background1, 0, 0, null);
+            }
+            else {
+                g.drawImage(this.background2, 0, 0, null);
+            }
+            
             for (int i = 0; i < 4; i++){
                 if (nav == i){
                     g.drawImage(btnOn[i], (34*(i+1))+(157*i), 177, null);            
@@ -115,8 +123,8 @@ public class MenuArena extends JPanel implements ActionListener{
                     g.drawImage(btnOff[i], (34*(i+1-4))+(157*(i-4)), 354, null);                            
                 }
             }        
-            
-            Toolkit.getDefaultToolkit().sync();
+
+        Toolkit.getDefaultToolkit().sync();
     }
     
     @Override
@@ -131,31 +139,31 @@ public class MenuArena extends JPanel implements ActionListener{
         if (sel == 0 ){
             if (key == KeyEvent.VK_ENTER) {
                 if (nav == 0){    
-                  arenaSelecionada = 0;                               
+                  jogadoresSelecionados[nJogador] = 0;
                 }
                 else if(nav == 1){                
-                    arenaSelecionada = 1;               
+                    jogadoresSelecionados[nJogador] = 1;
                 }            
                 else if(nav == 2){                                
-                    arenaSelecionada = 2;
+                    jogadoresSelecionados[nJogador] = 2;
                 }             
                 else if (nav == 3){
-                    arenaSelecionada = 3;
+                    jogadoresSelecionados[nJogador] = 3;
                 } 
                 else if (nav == 4){
-                    arenaSelecionada = 4;
+                    jogadoresSelecionados[nJogador] = 4;
                 } 
                 else if (nav == 5){
-                    arenaSelecionada = 5;
+                    jogadoresSelecionados[nJogador] = 5;
                 } 
                 else if (nav == 6){
-                    arenaSelecionada = 6;
+                    jogadoresSelecionados[nJogador] = 6;
                 } 
                 else if (nav == 7){
-                    arenaSelecionada = 7;
+                    jogadoresSelecionados[nJogador] = 7;
                 }
                 
-                app.showMenuJogador();
+                nJogador += 1;                
             }            
             if (key == KeyEvent.VK_LEFT) {
                 nav--;
@@ -208,5 +216,4 @@ public class MenuArena extends JPanel implements ActionListener{
         }
 
     }
-    
 }
