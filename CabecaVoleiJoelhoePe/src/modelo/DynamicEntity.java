@@ -9,6 +9,7 @@ public abstract class DynamicEntity extends AbstractEntity{
     Point2D.Double maxSpeed;
     double friction;
     double gravity;
+    boolean rightSide;
 
     public DynamicEntity(int x, int y, double speedValue) {
         super(x, y);

@@ -7,7 +7,7 @@ import util.ImageManager;
 
 public class Net extends StaticEntity{
 
-    private static final String NOME_ARQUIVO = "rede.png"; 
+    private static final String FILE_NAME = "rede.png"; 
     
     public Net(int x, int y, int width, int height) {
         super(x, y, width, height);
@@ -16,7 +16,7 @@ public class Net extends StaticEntity{
     @Override
     public void init() {
         try {
-            this.sprite = ImageManager.getInstance().loadImage(this.NOME_ARQUIVO);
+            this.sprite = ImageManager.getInstance().loadImage(this.FILE_NAME);
         } catch (IOException ex) {
             Logger.getLogger(Net.class.getName()).log(Level.SEVERE, null, ex);
         }

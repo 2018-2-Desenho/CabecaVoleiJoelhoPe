@@ -7,37 +7,37 @@ import util.ImageManager;
 
 public class Ground extends StaticEntity{
     
-    private String NOME_ARQUIVO;
-    private boolean campoDireito;
+    private String FILE_NAME;
+    private boolean rightSide;
 
-    public Ground(int x, int y, int width, int height, Arenas groundSprite, boolean campoDireito) {
+    public Ground(int x, int y, int width, int height, Arenas groundSprite, boolean rightSide) {
         super(x, y, width, height);
-        this.campoDireito = campoDireito;
+        this.rightSide = rightSide;
         
         switch(groundSprite){
             case ARENA_GABI:
-                this.NOME_ARQUIVO = "arena_gabi.png";
+                this.FILE_NAME = "chao_gabi.png";
                 break;
             case ARENA_GUILHERME:
-                this.NOME_ARQUIVO = "arena_guilherme.png";
+                this.FILE_NAME = "chao_guilherme.png";
                 break;
             case ARENA_LUCAS_L:
-                this.NOME_ARQUIVO = "arena_lucas_l.png";
+                this.FILE_NAME = "chao_lucas_l.png";
                 break;
             case ARENA_LUCAS_M:
-                this.NOME_ARQUIVO = "arena_lucas_m.png";
+                this.FILE_NAME = "chao_lucas_m.png";
                 break;
             case ARENA_LUCAS_P:
-                this.NOME_ARQUIVO = "arena_lucas_p.png";
+                this.FILE_NAME = "chao_lucas_p.png";
                 break;
             case ARENA_LUCAS_S:
-                this.NOME_ARQUIVO = "arena_lucas_s.png";
+                this.FILE_NAME = "chao_lucas_s.png";
                 break;
             case ARENA_PAULO:
-                this.NOME_ARQUIVO = "arena_paulo.png";
+                this.FILE_NAME = "chao_paulo.png";
                 break;
             case ARENA_THIAGO:
-                this.NOME_ARQUIVO = "arena_thiago.png";
+                this.FILE_NAME = "chao_thiago.png";
                 break;
         }
     }
@@ -45,7 +45,7 @@ public class Ground extends StaticEntity{
     @Override
     public void init() {
         try {
-            this.sprite = ImageManager.getInstance().loadImage(this.NOME_ARQUIVO);
+            this.sprite = ImageManager.getInstance().loadImage(this.FILE_NAME);
         } catch (IOException ex) {
             Logger.getLogger(Ground.class.getName()).log(Level.SEVERE, null, ex);
         }
