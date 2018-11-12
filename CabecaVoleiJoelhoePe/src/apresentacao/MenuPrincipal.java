@@ -2,6 +2,7 @@ package apresentacao;
 
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.PopupMenu;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +14,7 @@ import javax.swing.JPanel;
 public class MenuPrincipal extends JPanel implements ActionListener {
     //Atributos
     private Apresentacao app;
-//    private MenuJogador menuJogador;
+    private MenuArena menuArena;
     
     private KeyListerner keyListerner;
     
@@ -139,8 +140,8 @@ public class MenuPrincipal extends JPanel implements ActionListener {
         
         if (sel == 0 ){
             if (key == KeyEvent.VK_ENTER) {
-                if (nav == 0){    
-//                    add(menuJogador);                               
+                if (nav == 0){
+                    app.showMenuArena();
                 }
                 else if(nav == 1){                
                     sel = 1;                
