@@ -64,13 +64,13 @@ public class Player extends DynamicEntity{
                 this.FILE_NAME += "_direita";
             }
             
-            BufferedImage img = ImageManager.getInstance().loadImage(FILE_NAME += "_parado.png");
+            BufferedImage img = ImageManager.getInstance().loadImage(FILE_NAME + "_parado.png");
             this.sprites.add(img);
-            img = ImageManager.getInstance().loadImage(FILE_NAME += "_andando.png");
+            img = ImageManager.getInstance().loadImage(FILE_NAME + "_parado.png");
             this.sprites.add(img);
-            img = ImageManager.getInstance().loadImage(FILE_NAME += "_pulando.png");
+            img = ImageManager.getInstance().loadImage(FILE_NAME + "_parado.png");
             this.sprites.add(img);
-            img = ImageManager.getInstance().loadImage(FILE_NAME += "_caindo.png");
+            img = ImageManager.getInstance().loadImage(FILE_NAME + "_parado.png");
             this.sprites.add(img);
 
             this.state = STATE_STANDING;
