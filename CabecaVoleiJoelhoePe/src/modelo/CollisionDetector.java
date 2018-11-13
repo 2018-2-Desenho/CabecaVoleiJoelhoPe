@@ -29,19 +29,19 @@ public class CollisionDetector {
                     
                     if (rect.getWidth() > rect.getHeight()) {
                         if (focusEntity.position.getCenterY() < verifiedEntity.position.getCenterY()) {
-                                focusEntity.collidingEntities[AbstractEntity.COLLIDING_DOWN] = verifiedEntity;
-                                verifiedEntity.collidingEntities[AbstractEntity.COLLIDING_TOP] = focusEntity;
+                            focusEntity.collidingEntities[AbstractEntity.COLLIDING_DOWN] = verifiedEntity;
+                            verifiedEntity.collidingEntities[AbstractEntity.COLLIDING_TOP] = focusEntity;
                         } else {
-                                focusEntity.collidingEntities[AbstractEntity.COLLIDING_TOP] = verifiedEntity;
-                                verifiedEntity.collidingEntities[AbstractEntity.COLLIDING_DOWN] = focusEntity;
+                            focusEntity.collidingEntities[AbstractEntity.COLLIDING_TOP] = verifiedEntity;
+                            verifiedEntity.collidingEntities[AbstractEntity.COLLIDING_DOWN] = focusEntity;
                         }
                     } else {
                         if (focusEntity.position.getCenterX() < verifiedEntity.position.getCenterX()) {
-                                focusEntity.collidingEntities[AbstractEntity.COLLIDING_RIGHT] = verifiedEntity;
-                                verifiedEntity.collidingEntities[AbstractEntity.COLLIDING_LEFT] = focusEntity;
+                            focusEntity.collidingEntities[AbstractEntity.COLLIDING_RIGHT] = verifiedEntity;
+                            verifiedEntity.collidingEntities[AbstractEntity.COLLIDING_LEFT] = focusEntity;
                         } else {
-                                focusEntity.collidingEntities[AbstractEntity.COLLIDING_LEFT] = verifiedEntity;
-                                verifiedEntity.collidingEntities[AbstractEntity.COLLIDING_RIGHT] = focusEntity;
+                            focusEntity.collidingEntities[AbstractEntity.COLLIDING_LEFT] = verifiedEntity;
+                            verifiedEntity.collidingEntities[AbstractEntity.COLLIDING_RIGHT] = focusEntity;
                         }
                     }
                 }

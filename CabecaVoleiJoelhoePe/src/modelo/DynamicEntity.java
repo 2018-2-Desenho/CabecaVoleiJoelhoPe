@@ -10,6 +10,7 @@ public abstract class DynamicEntity extends AbstractEntity{
     double friction;
     double gravity;
     boolean rightSide;
+    DynamicEntity[] collidingDynamic;
 
     public DynamicEntity(int x, int y, double speedValue) {
         super(x, y);
@@ -18,6 +19,7 @@ public abstract class DynamicEntity extends AbstractEntity{
         this.maxSpeed = new Point2D.Double(5, 15);
         this.friction = 0.3;
         this.gravity = 0.4;
+        this.collidingDynamic = new DynamicEntity[4];
     }
     
     @Override
