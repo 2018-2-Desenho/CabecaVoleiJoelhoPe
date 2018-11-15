@@ -17,8 +17,8 @@ public abstract class DynamicEntity extends AbstractEntity{
         this.speed = new Point2D.Double(speedValue, speedValue);
         this.acceleration = new Point2D.Double();
         this.maxSpeed = new Point2D.Double(5, 15);
-        this.friction = 0.3;
-        this.gravity = 0.4;
+        this.friction = 0.15;
+        this.gravity = 0.5;
         this.collidingDynamic = new DynamicEntity[4];
     }
     

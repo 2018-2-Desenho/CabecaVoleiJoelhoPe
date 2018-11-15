@@ -132,10 +132,9 @@ public class Ball extends DynamicEntity {
 
     @Override
     public void render(Graphics2D g) {
-            // Desenha o sprite pego da positionição correspondente ao estado atual.
-            int y = (int) (this.position.y + this.position.height) - this.sprite.getHeight();
-            int x = (int) (this.position.x + this.position.width / 2) - (this.sprite.getWidth() / 2);
-            g.drawImage(this.sprite, x, y, null);
+        int y = (int) (this.position.y + this.position.height) - this.sprite.getHeight();
+        int x = (int) (this.position.x + this.position.width / 2) - (this.sprite.getWidth() / 2);
+        g.drawImage(this.sprite, x, y, null);
     }
     
 }

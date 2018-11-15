@@ -138,10 +138,10 @@ public class Player extends DynamicEntity{
     }
 
     public void playSound(String fileName) {
-            try {
-                    AudioManager.getInstance().loadAudio(fileName).play();
-            } catch (IOException ioe) {
-            }
+        try {
+            AudioManager.getInstance().loadAudio(fileName).play();
+        } catch (IOException ex) {
+            Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-
 }
