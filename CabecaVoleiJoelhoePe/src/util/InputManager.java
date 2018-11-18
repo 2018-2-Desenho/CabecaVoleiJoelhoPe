@@ -1,22 +1,23 @@
 package util;
 
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class InputManager {
+public class InputManager implements KeyListener {
     static protected int KEY_RELEASED = 0;
     static protected int KEY_JUST_PRESSED = 1;
     static protected int KEY_PRESSED = 2;
     static private InputManager instance;
-    private HashMap<Integer, Integer> keyCache;
-    private ArrayList<Integer> pressedKeys;
-    private ArrayList<Integer> releasedKeys;
+    private final HashMap<Integer, Integer> keyCache;
+    private final ArrayList<Integer> pressedKeys;
+    private final ArrayList<Integer> releasedKeys;
 
     private InputManager(){
-        keyCache = new HashMap<Integer, Integer>();
-        pressedKeys = new ArrayList<Integer>();
-        releasedKeys = new ArrayList<Integer>();
+        keyCache = new HashMap<>();
+        pressedKeys = new ArrayList<>();
+        releasedKeys = new ArrayList<>();
     }
 
     static public InputManager getInstance(){
@@ -62,14 +63,17 @@ public class InputManager {
         releasedKeys.clear();
     }
 
+    @Override
     public void keyTyped(KeyEvent e){
         
     }
 
+    @Override
     public void keyPressed(KeyEvent e){
          pressedKeys.add(e.getKeyCode());
     }
 
+    @Override
     public void keyReleased(KeyEvent e){
         releasedKeys.add(e.getKeyCode());
     }

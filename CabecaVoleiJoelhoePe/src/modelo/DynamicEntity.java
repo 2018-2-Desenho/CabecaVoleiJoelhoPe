@@ -9,14 +9,17 @@ public abstract class DynamicEntity extends AbstractEntity{
     Point2D.Double maxSpeed;
     double friction;
     double gravity;
+    boolean rightSide;
+    DynamicEntity[] collidingDynamic;
 
     public DynamicEntity(int x, int y, double speedValue) {
         super(x, y);
         this.speed = new Point2D.Double(speedValue, speedValue);
         this.acceleration = new Point2D.Double();
-        this.maxSpeed = new Point2D.Double(5, 15);
-        this.friction = 0.3;
-        this.gravity = 0.4;
+        this.maxSpeed = new Point2D.Double(7, 15);
+        this.friction = 0.15;
+        this.gravity = 0.5;
+        this.collidingDynamic = new DynamicEntity[4];
     }
     
     @Override
@@ -30,7 +33,7 @@ public abstract class DynamicEntity extends AbstractEntity{
         }
         
         this.acceleration.y += this.gravity;
-        this.speed.y = this.acceleration.y;
+        this.speed.y += this.acceleration.y;
         
         if(this.speed.y < -this.maxSpeed.y) {
             this.speed.y = -this.maxSpeed.y;
@@ -41,8 +44,8 @@ public abstract class DynamicEntity extends AbstractEntity{
         if (this.speed.y < 0) {
             if (this.collidingEntities[COLLIDING_TOP] != null) {
 		this.position.y = this.collidingEntities[COLLIDING_TOP].position.y + this.collidingEntities[COLLIDING_TOP].position.height;
-		this.speed.y = 0;
-		this.acceleration.y = 0;
+		// this.speed.y = 0;
+		// this.acceleration.y = 0;
             }
 	} else if (this.speed.y > 0) {
             if (this.collidingEntities[COLLIDING_DOWN] != null) {
