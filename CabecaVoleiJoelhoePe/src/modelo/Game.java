@@ -42,7 +42,7 @@ public class Game extends GameManager {
         
         DynamicEntity j2 = new Player(500, 300, true, Characters.PERSONAGEM_GABI);
         DynamicEntity j1 = new Player(150, 300, false, Characters.PERSONAGEM_GABI);
-        DynamicEntity b = new Ball(150, 60, 20);
+        DynamicEntity b = new Ball(60, 60, 20);
 
         dynamicEntities.add(j2);
         dynamicEntities.add(j1);

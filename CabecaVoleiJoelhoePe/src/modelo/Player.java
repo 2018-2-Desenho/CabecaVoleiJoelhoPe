@@ -53,7 +53,6 @@ public class Player extends DynamicEntity{
                 break;
             case PERSONAGEM_THIAGO:
                 this.FILE_NAME = "personagem_thiago";
-                break;
         }
     }
 

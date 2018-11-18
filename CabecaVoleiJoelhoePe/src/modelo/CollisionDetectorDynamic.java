@@ -13,7 +13,7 @@ public class CollisionDetectorDynamic {
    public void update(int currentTick){
        for (DynamicEntity entity : this.entities) {
            for (int i = 0; i < 4; i++) {
-               entity.collidingEntities[i] = null;
+               entity.collidingDynamic[i] = null;
            }
        }
        
@@ -28,19 +28,19 @@ public class CollisionDetectorDynamic {
                     
                     if (rect.getWidth() > rect.getHeight()) {
                         if (focusEntity.position.getCenterY() < verifiedEntity.position.getCenterY()) {
-                            focusEntity.collidingEntities[DynamicEntity.COLLIDING_DOWN] = verifiedEntity;
-                            verifiedEntity.collidingEntities[DynamicEntity.COLLIDING_TOP] = focusEntity;
+                            focusEntity.collidingDynamic[DynamicEntity.COLLIDING_DOWN] = verifiedEntity;
+                            verifiedEntity.collidingDynamic[DynamicEntity.COLLIDING_TOP] = focusEntity;
                         } else {
-                            focusEntity.collidingEntities[DynamicEntity.COLLIDING_TOP] = verifiedEntity;
-                            verifiedEntity.collidingEntities[DynamicEntity.COLLIDING_DOWN] = focusEntity;
+                            focusEntity.collidingDynamic[DynamicEntity.COLLIDING_TOP] = verifiedEntity;
+                            verifiedEntity.collidingDynamic[DynamicEntity.COLLIDING_DOWN] = focusEntity;
                         }
                     } else {
                         if (focusEntity.position.getCenterX() < verifiedEntity.position.getCenterX()) {
-                            focusEntity.collidingEntities[DynamicEntity.COLLIDING_RIGHT] = verifiedEntity;
-                            verifiedEntity.collidingEntities[DynamicEntity.COLLIDING_LEFT] = focusEntity;
+                            focusEntity.collidingDynamic[DynamicEntity.COLLIDING_RIGHT] = verifiedEntity;
+                            verifiedEntity.collidingDynamic[DynamicEntity.COLLIDING_LEFT] = focusEntity;
                         } else {
-                            focusEntity.collidingEntities[DynamicEntity.COLLIDING_LEFT] = verifiedEntity;
-                            verifiedEntity.collidingEntities[DynamicEntity.COLLIDING_RIGHT] = focusEntity;
+                            focusEntity.collidingDynamic[DynamicEntity.COLLIDING_LEFT] = verifiedEntity;
+                            verifiedEntity.collidingDynamic[DynamicEntity.COLLIDING_RIGHT] = focusEntity;
                         }
                     }
                 }
