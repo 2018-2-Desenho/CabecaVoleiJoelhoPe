@@ -139,8 +139,8 @@ public class Game extends GameManager {
         }
     }
     
-    public static void main(String[] args) {
-        GameManager myGame = new Game();
-        myGame.run();
-    }
+//    public static void main(String[] args) {
+//        GameManager myGame = new Game();
+//        myGame.run();
+//    }
 }

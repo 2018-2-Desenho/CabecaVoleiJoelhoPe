@@ -2,21 +2,16 @@ package apresentacao;
 
 import java.awt.Graphics;
 import java.awt.Image;
-import java.awt.PopupMenu;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-public class MenuPrincipal extends JPanel implements ActionListener {
+public class MenuPrincipal extends JPanel implements KeyListener {
     //Atributos
     private Apresentacao app;
     private MenuArena menuArena;
-    
-    private KeyListerner keyListerner;
     
     private Image ajuda;
     private Image configuracoes;
@@ -34,9 +29,8 @@ public class MenuPrincipal extends JPanel implements ActionListener {
         this.app = app;
         
         ImageIcon image;
-        
-        keyListerner = new KeyListerner();
-        addKeyListener(keyListerner);
+
+        addKeyListener(this);
         
         setFocusable(true);
         setDoubleBuffered(true);
@@ -127,13 +121,17 @@ public class MenuPrincipal extends JPanel implements ActionListener {
 
         Toolkit.getDefaultToolkit().sync();
     }
-    
+
     @Override
-    public void actionPerformed(ActionEvent e) {        
+    public void keyTyped(KeyEvent e) {
     }
     
-
-    public void pressed(KeyEvent e) {
+     @Override
+    public void keyReleased(KeyEvent e) {
+    }
+    
+    @Override
+    public void keyPressed(KeyEvent e) {
 
         int key = e.getKeyCode();  
 
@@ -178,19 +176,5 @@ public class MenuPrincipal extends JPanel implements ActionListener {
 
         repaint();      
         
-    }
-    
-    private class KeyListerner extends KeyAdapter {
-
-        @Override
-        public void keyPressed(KeyEvent e) {            
-            pressed(e);
-        }
-
-        @Override
-        public void keyReleased(KeyEvent e) {
-
-        }
-
     }
 }

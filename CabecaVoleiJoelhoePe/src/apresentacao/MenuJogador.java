@@ -3,17 +3,13 @@ package apresentacao;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-class MenuJogador extends JPanel implements ActionListener{
+class MenuJogador extends JPanel implements KeyListener{
      private Apresentacao app;
-    
-    private KeyListerner keyListerner;
     
     private Image background1;
     private Image background2;
@@ -30,8 +26,7 @@ class MenuJogador extends JPanel implements ActionListener{
         
         ImageIcon image;
         
-        keyListerner = new KeyListerner();
-        addKeyListener(keyListerner);
+        addKeyListener(this);
         
         setFocusable(true);
         setDoubleBuffered(true);
@@ -128,10 +123,15 @@ class MenuJogador extends JPanel implements ActionListener{
     }
     
     @Override
-    public void actionPerformed(ActionEvent e) {        
+    public void keyTyped(KeyEvent e) {
     }
     
-    public void pressed(KeyEvent e) {
+    @Override
+    public void keyReleased(KeyEvent e) {
+    }
+    
+    @Override
+    public void keyPressed(KeyEvent e) {
 
         int key = e.getKeyCode();  
 
@@ -163,7 +163,10 @@ class MenuJogador extends JPanel implements ActionListener{
                     jogadoresSelecionados[nJogador] = 7;
                 }
                 
-                nJogador += 1;                
+                nJogador += 1;
+                if(nJogador == 2){
+                    app.startGame();
+                }
             }            
             if (key == KeyEvent.VK_LEFT) {
                 nav--;
@@ -201,19 +204,5 @@ class MenuJogador extends JPanel implements ActionListener{
 
         repaint();      
         
-    }
-    
-    private class KeyListerner extends KeyAdapter {
-
-        @Override
-        public void keyPressed(KeyEvent e) {            
-            pressed(e);
-        }
-
-        @Override
-        public void keyReleased(KeyEvent e) {
-
-        }
-
     }
 }

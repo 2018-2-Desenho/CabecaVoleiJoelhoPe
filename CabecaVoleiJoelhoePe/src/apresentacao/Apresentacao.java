@@ -1,11 +1,14 @@
 package apresentacao;
 
 import javax.swing.JFrame;
+import modelo.Game;
+import util.GameManager;
 
 public class Apresentacao extends JFrame {
     private MenuPrincipal menu;
     private MenuArena menuArena;
     private MenuJogador menuJogador;
+    private GameManager myGame;
     
     public Apresentacao(){
         menu = new MenuPrincipal(this);
@@ -38,6 +41,12 @@ public class Apresentacao extends JFrame {
         revalidate();            
         menuJogador.requestFocusInWindow();        
         menuJogador.repaint();
+    }
+    
+    public void startGame(){;
+        this.dispose();
+        myGame = new Game();
+        myGame.run();
     }
     
     public static void main(String[] args) {
