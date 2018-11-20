@@ -1,5 +1,6 @@
 package modelo;
 
+import apresentacao.Apresentacao;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
@@ -41,7 +42,7 @@ public class Game extends GameManager {
     }
 
     @Override
-    public void onLoad() {        
+    public void onLoad() {
         try {
             imgCenario = ImageManager.getInstance().loadImage("estadio.png");
             imgPlacar = ImageManager.getInstance().loadImage("placa.png");
@@ -142,5 +143,7 @@ public class Game extends GameManager {
     public static void main(String[] args) {
         GameManager myGame = new Game();
         myGame.run();
+//        Apresentacao app = new Apresentacao(myGame);
+//        app.setVisible(true);
     }
 }

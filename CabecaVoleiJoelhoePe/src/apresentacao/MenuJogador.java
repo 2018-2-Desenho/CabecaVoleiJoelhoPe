@@ -163,7 +163,10 @@ class MenuJogador extends JPanel implements ActionListener{
                     jogadoresSelecionados[nJogador] = 7;
                 }
                 
-                nJogador += 1;                
+                nJogador += 1;
+                if(nJogador == 2){
+                    app.showGame();
+                }
             }            
             if (key == KeyEvent.VK_LEFT) {
                 nav--;
