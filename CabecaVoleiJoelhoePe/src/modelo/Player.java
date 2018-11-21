@@ -13,11 +13,11 @@ import util.InputManager;
 
 public class Player extends DynamicEntity{
 
-    static final int STATE_STANDING = 0;
-    static final int STATE_WALKING = 1;
-    static final int STATE_JUMPING = 2;
-    static final int STATE_FALLING = 3;
-    int state;
+    AbstractState standing;
+    AbstractState walking;
+    AbstractState falling;
+    AbstractState jumping;       
+    AbstractState state;
     int stepInterval;
     int lastStepTick;
     ArrayList<BufferedImage> sprites;
@@ -63,18 +63,14 @@ public class Player extends DynamicEntity{
                 this.FILE_NAME += "_direita";
             }
             
-            BufferedImage img = ImageManager.getInstance().loadImage(FILE_NAME + "_parado.png");
-            this.sprites.add(img);
-            img = ImageManager.getInstance().loadImage(FILE_NAME + "_parado.png");
-            this.sprites.add(img);
-            img = ImageManager.getInstance().loadImage(FILE_NAME + "_parado.png");
-            this.sprites.add(img);
-            img = ImageManager.getInstance().loadImage(FILE_NAME + "_parado.png");
-            this.sprites.add(img);
+            this.standing = new StandingState(this, FILE_NAME);
+            this.walking = new WalkingState(this, FILE_NAME);
+            this.jumping = new JumpingState(this, FILE_NAME);
+            this.falling = new FallingState(this, FILE_NAME);
 
-            this.state = STATE_STANDING;
-            this.position.width = this.sprites.get(state).getWidth();
-            this.position.height = this.sprites.get(state).getHeight();
+            this.state = this.standing;
+            this.position.width = this.state.sprite.getWidth();
+            this.position.height = this.state.sprite.getHeight();
         } catch (IOException ex) {
             Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -105,35 +101,12 @@ public class Player extends DynamicEntity{
         
         super.update(currentTick);
         
-        if (this.speed.y < 0) {
-            if (this.state != STATE_JUMPING) {
-                this.playSound("jump.wav");
-            }
-            this.state = STATE_JUMPING;
-        } else if (speed.y > 0) {
-            this.state = STATE_FALLING;
-        } else if (speed.x != 0) {
-            if (this.state == STATE_FALLING) {
-                this.playSound("jumpEnd.wav");
-            }
-            this.state = STATE_WALKING;
-            if (currentTick - this.lastStepTick > this.stepInterval) {
-                playSound("step.wav");
-                this.lastStepTick = currentTick;
-            }
-        } else {
-            if (this.state == STATE_FALLING) {
-                this.playSound("jumpEnd.wav");
-            }
-            this.state = STATE_STANDING;
-        }
+        this.state.playSong();
     }
 
     @Override
     public void render(Graphics2D g) {
-        int y = (int) (this.position.y + this.position.height) - this.sprites.get(this.state).getHeight();
-        int x = (int) (this.position.x + this.position.width / 2) - (this.sprites.get(this.state).getWidth() / 2);
-        g.drawImage(this.sprites.get(this.state), x, y, null);
+        this.state.renderSprite(g);
     }
 
     public void playSound(String fileName) {
