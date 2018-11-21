@@ -39,7 +39,7 @@ public class Ball extends DynamicEntity {
             this.acceleration.y += Math.random() * 5;
             if(this.collidingDynamic[COLLIDING_DOWN].rightSide){
                 Player aux = (Player) this.collidingDynamic[COLLIDING_DOWN];
-                if(aux.state == 2){    
+                if(aux.state == aux.jumping){    
                     this.acceleration.y += 1 + Math.random() * 10;
 
                     this.acceleration.x = 0;
@@ -47,7 +47,7 @@ public class Ball extends DynamicEntity {
                 }
             } else {
                 Player aux = (Player) this.collidingDynamic[COLLIDING_DOWN];
-                if(aux.state == 2){
+                if(aux.state == aux.jumping){
                     this.acceleration.y += 1 + Math.random() * 10;
 
                     this.acceleration.x = 0;
