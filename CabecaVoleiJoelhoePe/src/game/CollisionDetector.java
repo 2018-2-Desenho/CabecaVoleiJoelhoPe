@@ -1,7 +1,8 @@
-package modelo;
+package game;
 
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
+import modelo.AbstractEntity;
 
 public class CollisionDetector {
     

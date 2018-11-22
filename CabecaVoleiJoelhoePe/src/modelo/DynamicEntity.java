@@ -10,7 +10,7 @@ public abstract class DynamicEntity extends AbstractEntity{
     double friction;
     double gravity;
     boolean rightSide;
-    DynamicEntity[] collidingDynamic;
+    public DynamicEntity[] collidingDynamic;
 
     public DynamicEntity(int x, int y, double speedValue) {
         super(x, y);

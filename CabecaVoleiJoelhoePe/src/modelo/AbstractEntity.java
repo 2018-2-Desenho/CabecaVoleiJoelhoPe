@@ -5,13 +5,13 @@ import java.awt.geom.Rectangle2D;
 
 public abstract class AbstractEntity {
     
-    static final int COLLIDING_TOP = 0;
-    static final int COLLIDING_RIGHT = 1;
-    static final int COLLIDING_DOWN = 2;
-    static final int COLLIDING_LEFT = 3;
-    Rectangle2D.Double position;
+    public static final int COLLIDING_TOP = 0;
+    public static final int COLLIDING_RIGHT = 1;
+    public static final int COLLIDING_DOWN = 2;
+    public static final int COLLIDING_LEFT = 3;
+    public Rectangle2D.Double position;
     int energy;
-    AbstractEntity[] collidingEntities;
+    public AbstractEntity[] collidingEntities;
     
     public AbstractEntity(int x, int y){
         this.position = new Rectangle2D.Double(x, y, 1, 1);
