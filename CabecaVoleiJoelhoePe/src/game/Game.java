@@ -1,7 +1,5 @@
 package game;
 
-import game.CollisionDetectorDynamic;
-import game.CollisionDetector;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
@@ -11,14 +9,8 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.AbstractEntity;
-import modelo.Ball;
-import modelo.Characters;
 import modelo.DynamicEntity;
-import modelo.Net;
-import modelo.Player;
-import modelo.Wall;
 import util.AudioManager;
-import util.ImageManager;
 import util.GameManager;
 import util.InputManager;
 
@@ -32,40 +24,15 @@ public class Game extends GameManager {
     boolean gameOver;
     BufferedImage imgCenario;
 
-    public Game() {		
-            entities = new ArrayList<>();
-            dynamicEntities = new ArrayList<>();
-            collisionDetector = new CollisionDetector(entities);
-            collisionDetectorDynamic = new CollisionDetectorDynamic(dynamicEntities);
-            gameOver = false;
-    }
+    public Game() {}
 
     @Override
     public void onLoad() {        
         try {
-            imgCenario = ImageManager.getInstance().loadImage("estadio.png");
             AudioManager.getInstance().loadAudio("menina.wav").loop();
         } catch (IOException ex) {
             Logger.getLogger(Game.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        DynamicEntity j2 = new Player(500, 300, true, Characters.PERSONAGEM_GABI);
-        DynamicEntity j1 = new Player(150, 300, false, Characters.PERSONAGEM_GABI);
-        DynamicEntity b = new Ball(60, 60, 20);
-
-        dynamicEntities.add(j2);
-        dynamicEntities.add(j1);
-        dynamicEntities.add(b);
-
-        entities.add(j2);
-        entities.add(j1);
-        entities.add(b);
-
-        entities.add(new Wall(0, 590, 800, 10));
-        entities.add(new Wall(790, 0, 10, 600));
-        entities.add(new Wall(0, 0, 10, 600));
-        entities.add(new Wall(0, 0, 800, 10));
-        entities.add(new Net(360, 400, 80, 200));
 
         for (AbstractEntity e : entities) {
                 e.init();
@@ -87,8 +54,9 @@ public class Game extends GameManager {
             for (AbstractEntity e : entities) {
                     e.update(currentTick);
             }
-            collisionDetector.update(currentTick);
-            collisionDetectorDynamic.update(currentTick);
+            
+            this.collisionDetector.update(currentTick);
+            this.collisionDetectorDynamic.update(currentTick);
         }
         if (InputManager.getInstance().isPressed(KeyEvent.VK_ESCAPE)) {
             terminate();
@@ -105,8 +73,8 @@ public class Game extends GameManager {
         }
     }
     
-    public static void main(String[] args) {
-        GameManager myGame = new Game();
-        myGame.run();
-    }
+//    public static void main(String[] args) {
+//        GameManager myGame = new Game();
+//        myGame.run();
+//    }
 }
