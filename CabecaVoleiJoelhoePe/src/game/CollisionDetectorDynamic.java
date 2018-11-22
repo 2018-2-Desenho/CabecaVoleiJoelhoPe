@@ -1,7 +1,8 @@
-package modelo;
+package game;
 
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
+import modelo.DynamicEntity;
 
 public class CollisionDetectorDynamic {
     ArrayList<DynamicEntity> entities;

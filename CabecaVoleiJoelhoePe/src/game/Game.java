@@ -1,5 +1,7 @@
-package modelo;
+package game;
 
+import game.CollisionDetectorDynamic;
+import game.CollisionDetector;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
@@ -8,6 +10,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import modelo.AbstractEntity;
+import modelo.Ball;
+import modelo.Characters;
+import modelo.DynamicEntity;
+import modelo.Net;
+import modelo.Player;
+import modelo.Wall;
 import util.AudioManager;
 import util.ImageManager;
 import util.GameManager;
