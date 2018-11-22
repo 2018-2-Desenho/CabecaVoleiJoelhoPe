@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import util.AudioManager;
-import util.ImageManager;
 import util.InputManager;
 
 public class Player extends DynamicEntity{
@@ -23,37 +22,12 @@ public class Player extends DynamicEntity{
     ArrayList<BufferedImage> sprites;
     private String FILE_NAME;
 
-    public Player(int x, int y, boolean rightSide, Characters playerSprite) {
+    public Player(int x, int y, boolean rightSide, String playerSprite) {
         super(x, y, 10);
         this.stepInterval = 20;
         this.sprites = new ArrayList<>();
         this.rightSide = rightSide;
-        
-        switch(playerSprite){
-            case PERSONAGEM_GABI:
-                this.FILE_NAME = "personagem_gabi";
-                break;
-            case PERSONAGEM_GUILHERME:
-                this.FILE_NAME = "personagem_guilherme";
-                break;
-            case PERSONAGEM_LUCAS_L:
-                this.FILE_NAME = "personagem_lucas_l";
-                break;
-            case PERSONAGEM_LUCAS_M:
-                this.FILE_NAME = "personagem_lucas_m";
-                break;
-            case PERSONAGEM_LUCAS_P:
-                this.FILE_NAME = "personagem_lucas_p";
-                break;
-            case PERSONAGEM_LUCAS_S:
-                this.FILE_NAME = "personagem_lucas_s";
-                break;
-            case PERSONAGEM_PAULO:
-                this.FILE_NAME = "personagem_paulo";
-                break;
-            case PERSONAGEM_THIAGO:
-                this.FILE_NAME = "personagem_thiago";
-        }
+        this.FILE_NAME = playerSprite;
     }
 
     @Override

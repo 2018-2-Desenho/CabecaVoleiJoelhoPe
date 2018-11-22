@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import modelo.Ball;
-import modelo.Characters;
 import modelo.DynamicEntity;
 import modelo.Net;
 import modelo.Player;
@@ -31,7 +30,7 @@ public class GameBuilder implements AbstractGameBuilder{
         this.game.entities.add(new Net(360, 400, 80, 200));
         
         try {
-            this.game.imgCenario = ImageManager.getInstance().loadImage("estadio.png");
+            this.game.imgCenario = ImageManager.getInstance().loadImage(imageFileNames.get("Arena"));
         } catch (IOException ex) {
             Logger.getLogger(GameBuilder.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -41,8 +40,8 @@ public class GameBuilder implements AbstractGameBuilder{
 
     @Override
     public AbstractGameBuilder createGameElements(final HashMap<String, String> imageFileNames) {
-        DynamicEntity j2 = new Player(500, 300, true, Characters.PERSONAGEM_LUCAS_L);
-        DynamicEntity j1 = new Player(150, 300, false, Characters.PERSONAGEM_THIAGO);
+        DynamicEntity j2 = new Player(500, 300, true, imageFileNames.get("Personagem_Direita"));
+        DynamicEntity j1 = new Player(150, 300, false, imageFileNames.get("Personagem_Esquerda"));
         DynamicEntity b = new Ball(60, 60, 20);
         
         this.game.dynamicEntities = new ArrayList<>();
