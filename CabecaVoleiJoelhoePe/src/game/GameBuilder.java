@@ -41,8 +41,8 @@ public class GameBuilder implements AbstractGameBuilder{
 
     @Override
     public AbstractGameBuilder createGameElements(final HashMap<String, String> imageFileNames) {
-        DynamicEntity j2 = new Player(500, 300, true, Characters.PERSONAGEM_GABI);
-        DynamicEntity j1 = new Player(150, 300, false, Characters.PERSONAGEM_GABI);
+        DynamicEntity j2 = new Player(500, 300, true, Characters.PERSONAGEM_LUCAS_L);
+        DynamicEntity j1 = new Player(150, 300, false, Characters.PERSONAGEM_THIAGO);
         DynamicEntity b = new Ball(60, 60, 20);
         
         this.game.dynamicEntities = new ArrayList<>();
