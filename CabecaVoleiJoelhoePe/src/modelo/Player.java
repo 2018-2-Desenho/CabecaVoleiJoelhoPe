@@ -84,12 +84,5 @@ public class Player extends DynamicEntity{
     public void render(Graphics2D g) {
         this.state.renderSprite(g);
     }
-
-    public void playSound(String fileName) {
-        try {
-            AudioManager.getInstance().loadAudio(fileName).play();
-        } catch (IOException ex) {
-            Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    
 }

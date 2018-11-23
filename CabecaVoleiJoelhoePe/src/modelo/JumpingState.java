@@ -10,8 +10,6 @@ public class JumpingState extends AbstractState{
 
     @Override
     public void playSong() {
-        this.playSound("jump.wav");
-        
         if(player.speed.y > 0){
             player.state = player.falling;
         }

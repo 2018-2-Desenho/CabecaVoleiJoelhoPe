@@ -13,6 +13,7 @@ public class WalkingState extends AbstractState{
         playSound("step.wav");
         
         if (player.speed.y < 0) {
+            this.playSound("jump.wav");
             player.state = player.jumping;
         } else if (player.speed.x == 0){
             player.state = player.standing;
