@@ -14,7 +14,6 @@ public class Main {
     static Scanner in = new Scanner(System.in);
     
     public static void main(String[] args) {
-        
         builder = new GameBuilder();
         director = new GameBuilderDirector(builder);
         end = false;
@@ -118,10 +117,10 @@ public class Main {
                         arena += "ARENA_LUCAS_S.png";
                         break;
                     case "4":
-                        arena += "ARENA_GABI.png";
+                        arena += "ARENA_PAULO.png";
                         break;
                     case "5":
-                        arena += "ARENA_GABI.png";
+                        arena += "ARENA_THIAGO.png";
                         break;
                     default:
                         isEnd = false;
