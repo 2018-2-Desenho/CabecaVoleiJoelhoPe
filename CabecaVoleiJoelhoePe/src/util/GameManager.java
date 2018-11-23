@@ -3,12 +3,14 @@ package util;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.awt.image.BufferStrategy;
 import javax.swing.JFrame;
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-abstract public class GameManager implements WindowListener
+abstract public class GameManager
 {
 	protected JFrame mainWindow;
 	private boolean active;
@@ -22,7 +24,14 @@ abstract public class GameManager implements WindowListener
 	{
 		mainWindow = new JFrame("Abrindo o Jogo - Desenvolvimento de Jogos Digitais em Java");
 		mainWindow.setSize(800, 600);
-		mainWindow.addWindowListener(this);
+		mainWindow.setDefaultCloseOperation(EXIT_ON_CLOSE);
+                mainWindow.addWindowListener(new WindowAdapter()
+		{
+			@Override
+			public void windowClosing(WindowEvent e) {
+                                terminate();
+			}
+		});
 		mainWindow.addKeyListener(InputManager.getInstance());
 		active = false;
 	}
@@ -62,7 +71,7 @@ abstract public class GameManager implements WindowListener
 
 	protected void load()
 	{
-		mainWindow.setUndecorated(true);
+		// mainWindow.setUndecorated(true);
 		mainWindow.setIgnoreRepaint(true);
 		mainWindow.setLocation(100, 100);
 		mainWindow.setVisible(true);
@@ -96,10 +105,10 @@ abstract public class GameManager implements WindowListener
 		onRender(g);
 
 		g.setColor(Color.black);
-		g.fillRect(0, 0, 200, 16);
+		// g.fillRect(0, 0, 200, 16);
 		g.setColor(Color.white);
 		g.setFont(new Font("", Font.BOLD, 12));
-		g.drawString(speedTracker.getTPS() + " tps", 1, 12);
+		// g.drawString(speedTracker.getTPS() + " tps", 1, 12);
 		g.dispose();
 		bufferStrategy.show();
 	}
@@ -120,34 +129,5 @@ abstract public class GameManager implements WindowListener
 	public int getHeight()
 	{
 		return mainWindow.getHeight();
-	}
-
-	public void windowClosing(WindowEvent e)
-	{
-		terminate();
-	}
-
-	public void windowOpened(WindowEvent e)
-	{
-	}
-
-	public void windowClosed(WindowEvent e)
-	{
-	}
-
-	public void windowIconified(WindowEvent e)
-	{
-	}
-
-	public void windowDeiconified(WindowEvent e)
-	{
-	}
-
-	public void windowActivated(WindowEvent e)
-	{
-	}
-
-	public void windowDeactivated(WindowEvent e)
-	{
 	}
 }
