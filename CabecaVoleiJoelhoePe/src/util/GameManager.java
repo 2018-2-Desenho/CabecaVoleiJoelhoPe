@@ -22,7 +22,7 @@ abstract public class GameManager
 
 	public GameManager()
 	{
-		mainWindow = new JFrame("Abrindo o Jogo - Desenvolvimento de Jogos Digitais em Java");
+		mainWindow = new JFrame("CabeçaVoleiJoelhoPé");
 		mainWindow.setSize(800, 600);
 		mainWindow.setDefaultCloseOperation(EXIT_ON_CLOSE);
                 mainWindow.addWindowListener(new WindowAdapter()
