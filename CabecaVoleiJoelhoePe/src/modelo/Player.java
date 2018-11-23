@@ -34,7 +34,9 @@ public class Player extends DynamicEntity{
     public void init() {
         try {
             if(this.rightSide){
-                this.FILE_NAME += "_direita";
+                this.FILE_NAME += "direita";
+            } else {
+                this.FILE_NAME += "esquerda";
             }
             
             this.standing = new StandingState(this, FILE_NAME);

@@ -15,7 +15,6 @@ public class Main {
     
     public static void main(String[] args) {
         
-    
         builder = new GameBuilder();
         director = new GameBuilderDirector(builder);
         end = false;
@@ -56,7 +55,7 @@ public class Main {
     
     public static String menuPersonagem (){
         boolean isEnd = false;
-        String character = null;
+        String character = "personagens/";
         
         while(!isEnd){
             isEnd = true;
@@ -71,19 +70,19 @@ public class Main {
             
             switch(in.next()){
                     case "1":
-                        character = "personagem_gabi";
+                        character += "personagem_gabi/";
                         break;
                     case "2":
-                        character = "personagem_lucas_l";
+                        character += "personagem_lucas_l/";
                         break;
                     case "3": 
-                        character = "personagem_lucas_s";
+                        character += "personagem_lucas_s/";
                         break;
                     case "4":
-                        character = "personagem_paulo";
+                        character += "personagem_paulo/";
                         break;
                     case "5":
-                        character = "personagem_thiago";
+                        character += "personagem_thiago/";
                         break;
                     default:
                         isEnd = false;
@@ -95,7 +94,7 @@ public class Main {
     
     public static String menuArena (){ 
         boolean isEnd = false;
-        String arena = null;
+        String arena = "arenas/";
         
         while(!isEnd){
             isEnd = true;
@@ -110,19 +109,19 @@ public class Main {
             
             switch(in.next()){
                     case "1":
-                        arena = "ARENA_GABI.png";
+                        arena += "ARENA_GABI.png";
                         break;
                     case "2":
-                        arena = "ARENA_LUCAS_L.png";
+                        arena += "ARENA_LUCAS_L.png";
                         break;
                     case "3": 
-                        arena = "ARENA_LUCAS_S.png";
+                        arena += "ARENA_LUCAS_S.png";
                         break;
                     case "4":
-                        arena = "ARENA_GABI.png";
+                        arena += "ARENA_GABI.png";
                         break;
                     case "5":
-                        arena = "ARENA_GABI.png";
+                        arena += "ARENA_GABI.png";
                         break;
                     default:
                         isEnd = false;
